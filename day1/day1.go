@@ -58,11 +58,31 @@ func SliceSum(slice []int) int {
 	return sum
 }
 
-func Day1(filename string) int {
+func CountNumber(slice []int, number int) int {
+	count := 0
+	for _, n := range slice {
+		if n == number {
+			count++
+		}
+	}
+	return count
+}
+
+func Day1Part1(filename string) int {
 	input := ReadFile(filename)
 	a, b := ConvertInput(input)
 	slices.Sort(a)
 	slices.Sort(b)
 	diff := SlicesDiff(a, b)
 	return SliceSum(diff)
+}
+
+func Day1Part2(filename string) int {
+	input := ReadFile(filename)
+	a, b := ConvertInput(input)
+	var nums []int
+	for _, number := range a {
+		nums = append(nums, CountNumber(b, number)*number)
+	}
+	return SliceSum(nums)
 }

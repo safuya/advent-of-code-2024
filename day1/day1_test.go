@@ -54,3 +54,15 @@ func TestSliceSum(t *testing.T) {
 		t.Errorf("Expected %d, got %d", expected, sum)
 	}
 }
+
+func TestCountNumber(t *testing.T) {
+	slice := []int{1, 2, 3, 3, 4}
+	number := 3
+	expected := 2
+
+	count := CountNumber(slice, number)
+
+	if count != expected {
+		t.Errorf("Expected %d, got %d", expected, count)
+	}
+}
