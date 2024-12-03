@@ -1,7 +1,7 @@
 package main
 
-import "advent-of-code-2024/day1"
+import "advent-of-code-2024/day2"
 
 func main() {
-	println(day1.Day1Part2("day1/input_day1.txt"))
+	println(day2.Day2Part1("day2/input_day2.txt"))
 }

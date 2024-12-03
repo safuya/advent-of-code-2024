@@ -1,6 +1,7 @@
 package day2
 
 import (
+	"advent-of-code-2024/day1"
 	"bufio"
 	"log"
 	"math"
@@ -56,4 +57,11 @@ func AscendingOrDescending(input [][]int) []int {
 		}
 	}
 	return result
+}
+
+func Day2Part1(filename string) int {
+	input := day1.ReadFile(filename)
+	converted_input := ConvertInput(input)
+	result_slice := AscendingOrDescending(converted_input)
+	return day1.SliceSum(result_slice)
 }

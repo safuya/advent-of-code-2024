@@ -33,3 +33,12 @@ func TestAscendingOrDescending(t *testing.T) {
 		t.Errorf("Expected %v, got %v", expected, result)
 	}
 }
+
+func TestDay2Part1(t *testing.T) {
+	result := Day2Part1("input_test.txt")
+	expected := 2
+
+	if result != expected {
+		t.Errorf("Expected %d, got %d", expected, result)
+	}
+}
