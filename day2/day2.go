@@ -3,6 +3,7 @@ package day2
 import (
 	"bufio"
 	"log"
+	"math"
 	"strconv"
 	"strings"
 )
@@ -21,6 +22,38 @@ func ConvertInput(input string) [][]int {
 			tmp_slice = append(tmp_slice, tmp)
 		}
 		result = append(result, tmp_slice)
+	}
+	return result
+}
+
+func AscendingOrDescending(input [][]int) []int {
+	var result []int
+	for _, slice := range input {
+		ascending := true
+		descending := true
+		limit_exceeded := false
+		for i := 1; i < len(slice); i++ {
+			if slice[i] > slice[i-1] {
+				descending = false
+			} else if slice[i] < slice[i-1] {
+				ascending = false
+			} else if slice[i] == slice[i-1] {
+				ascending = false
+				descending = false
+			}
+
+			if math.Abs(float64(slice[i]-slice[i-1])) > 3 {
+				limit_exceeded = true
+			}
+		}
+
+		if ascending && !limit_exceeded {
+			result = append(result, 1)
+		} else if descending && !limit_exceeded {
+			result = append(result, 1)
+		} else {
+			result = append(result, 0)
+		}
 	}
 	return result
 }
